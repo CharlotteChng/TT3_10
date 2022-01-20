@@ -73,6 +73,7 @@
   /* background-color: yellow; */
   margin-top: 10px;
   margin-bottom: 10px;
+  padding: 10px;
   border: #282c34;
   border-style: solid;
 }
@@ -80,6 +81,16 @@
 .pc-r1 {
   display: flex;
   flex-direction: row;
+}
+
+.pc-r2 {
+  background: black;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.pc-r3 {
+  margin-top: 10px;
 }
 
 .pc-r1-rc {
@@ -117,5 +128,6 @@
   width: 30%;
   left: 0;
   height: auto;
+  text-align: center;
   /* background-color: rebeccapurple; */
 }

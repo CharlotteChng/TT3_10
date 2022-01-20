@@ -6,9 +6,9 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { unauthenticatedRoutes, authenticatedRoutes } from "./Routes";
 
 import AuthenticationChecker from "./AuthenticationChecker";
+import TopNav from "./TopNav";
 
 const { Content } = Layout;
-const routePathsWithContent = unauthenticatedRoutes.concat(authenticatedRoutes);
 
 export default class RootPage extends Component {
   render() {
@@ -16,6 +16,7 @@ export default class RootPage extends Component {
       <BrowserRouter>
         <AuthenticationChecker />
         <Layout style={{ background: "white" }}>
+          <TopNav />
           <Switch>
             <Route>
               <Content>

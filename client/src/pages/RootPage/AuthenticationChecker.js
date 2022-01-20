@@ -12,16 +12,13 @@ class AuthenticationChecker extends Component {
   render() {
     const { pathname } = this.props.location;
     if (!allRoutes.some(route => matchPath(pathname, { path: route.path, exact: true }))) {
-      console.log('A');
       return <Redirect to='/' />;
     }
     else if (unauthenticatedRoutes.some(route => matchPath(pathname, { path: route.path, exact: true }))) {
-      console.log('B');
       return null;
     }
-    else if (!LoginStore.IsLoggedIn()) {
-      console.log('C');
-      return <Redirect to='/' />;
+    else if (authenticatedRoutes.some(route => matchPath(pathname, { path: route.path, exact: true })) && !LoginStore.IsLoggedIn()) {
+      return <Redirect to='/login' />;
     }
     return null;
   }

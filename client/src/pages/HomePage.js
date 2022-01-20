@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { Input, Button, Alert } from "antd";
 import "../App.css";
+import PostCards from "../components/PostCards";
+import { posts } from "./PostsObj";
+// import { post } from "request";
 
 export default class HomePage extends Component {
   constructor(props) {
@@ -9,9 +12,14 @@ export default class HomePage extends Component {
     this.state = {
       message: "",
       submittedPostNotification: false,
+      posts: [],
     };
     this.setPost = this.setPost.bind(this);
     this.createPost = this.createPost.bind(this);
+  }
+
+  componentDidMount() {
+    this.setState({ posts: posts });
   }
 
   setPost = (e) => {
@@ -30,6 +38,8 @@ export default class HomePage extends Component {
 
   render() {
     const { message, submittedPostNotification } = this.state;
+    console.log(posts);
+    var postList = this.state.posts;
     return (
       <div className="main-page">
         <div className="main-boundary">
@@ -49,8 +59,12 @@ export default class HomePage extends Component {
             <Button type="primary" onClick={this.createPost}>
               Post
             </Button>
-
-            <div>{message}</div>
+            {/* <div>{message}</div> */}
+            {postList.map((p, i) => {
+              console.log("para", p.Post_ID);
+              return <PostCards key={i} postID={p.Post_ID} />;
+              // return <div key={i}>{p.Post_ID}</div>;
+            })}
           </div>
         </div>
 

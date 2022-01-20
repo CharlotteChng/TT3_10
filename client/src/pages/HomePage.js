@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Input, Button, Alert } from "antd";
+import "../App.css";
 
 export default class HomePage extends Component {
   constructor(props) {

@@ -8,7 +8,6 @@ import { unauthenticatedRoutes, authenticatedRoutes } from './Routes';
 import AuthenticationChecker from './AuthenticationChecker';
 
 const { Content } = Layout;
-const routePathsWithContent = unauthenticatedRoutes.concat(authenticatedRoutes);
 
 export default class RootPage extends Component {
   render() {

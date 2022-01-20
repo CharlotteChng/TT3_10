@@ -16,7 +16,7 @@ const loggedInUserKey = 'logged-in-user';
 class LoginStore {
   IsLoggedIn() {
     let user = sessionStorage.getItem(loggedInUserKey);
-    return user !== undefined || user != 0;
+    return user;
   }
 
   GetMe() {

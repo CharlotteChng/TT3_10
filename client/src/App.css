@@ -50,7 +50,7 @@
   height: 100;
 }
 .main-boundary {
-  background-color: blue;
+  /* background-color: blue; */
   justify-content: center;
   width: 80%;
   height: 1500px;
@@ -61,10 +61,61 @@
   margin-left: 10px;
   margin-right: 5px;
   width: 96%;
-  background-color: purple;
+  /* background-color: purple; */
 }
 
 .main-post-box {
   width: 100%;
   height: 50px;
+}
+
+.postcard-main {
+  /* background-color: yellow; */
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: #282c34;
+  border-style: solid;
+}
+
+.pc-r1 {
+  display: flex;
+  flex-direction: row;
+}
+
+.pc-r1-rc {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.pc-margin {
+  margin: 5px 5px 5px 5px;
+}
+.pc-lm {
+  width: 30%;
+}
+.pc-rm {
+  width: 70%;
+}
+.pc-heading {
+  /* background-color: red; */
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.pc-img {
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+.pc-head-title {
+  width: 70%;
+}
+.pc-icons {
+  width: 30%;
+  left: 0;
+  height: auto;
+  /* background-color: rebeccapurple; */
 }

@@ -56,13 +56,25 @@ export default class HomePage extends Component {
               onChange={this.setPost}
               // showCount
             />
-            <Button type="primary" onClick={this.createPost}>
+            <Button
+              type="primary"
+              style={{ marginTop: "10px" }}
+              onClick={this.createPost}
+            >
               Post
             </Button>
             {/* <div>{message}</div> */}
             {postList.map((p, i) => {
               console.log("para", p.Post_ID);
-              return <PostCards key={i} postID={p.Post_ID} />;
+              return (
+                <PostCards
+                  key={i}
+                  postID={p.Post_ID}
+                  postTitle={p.Post_Title}
+                  postImage={p.Post_image}
+                  postDescription={p.Post_Description}
+                />
+              );
               // return <div key={i}>{p.Post_ID}</div>;
             })}
           </div>

@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import React, { Component } from "react";
+import { Link, withRouter } from "react-router-dom";
 
-import { Button, Form, Input, Typography } from 'antd';
+import { Button, Form, Input, Typography } from "antd";
 
-import LoginStore from '../stores/LoginStore';
+import LoginStore from "../stores/LoginStore";
 
 const { Text, Title } = Typography;
 const { Password } = Input;
@@ -13,47 +13,60 @@ class LoginPage extends Component {
     super(props);
 
     this.state = {
-      error: ''
-    }
+      error: "",
+    };
   }
 
   onFinish = (values) => {
     if (!values.name) {
-      this.setState({ error: 'Please enter name!' });
+      this.setState({ error: "Please enter name!" });
       return;
     }
 
     if (!values.password) {
-      this.setState({ error: 'Please enter password!' });
+      this.setState({ error: "Please enter password!" });
       return;
     }
 
-    LoginStore
-      .Login(values.name, values.password)
+    LoginStore.Login(values.name, values.password)
       .then(() => {
-        this.setState({ error: '' });
-        this.props.history.replace('/');
+        this.setState({ error: "" });
+        this.props.history.replace("/");
       })
-      .catch(error => this.setState({ error }));
-  }
+      .catch((error) => this.setState({ error }));
+  };
 
   render() {
     return (
       <>
-        <Form onFinish={this.onFinish} style={{ position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%, -50%)', minWidth: '300', width: '30%' }}>
+        <Form
+          onFinish={this.onFinish}
+          style={{
+            position: "absolute",
+            left: "50%",
+            top: "50%",
+            transform: "translate(-50%, -50%)",
+            minWidth: "300",
+            width: "30%",
+          }}
+        >
           <Title>Log In</Title>
-          <Form.Item name='name'>
-            <Input placeholder='name' />
+          <Form.Item name="name">
+            <Input placeholder="name" />
           </Form.Item>
-          <Form.Item name='password'>
-            <Password placeholder='Password' />
+          <Form.Item name="password">
+            <Password placeholder="Password" />
           </Form.Item>
-          <Text type='danger'>{this.state.error}</Text>
+          <Text type="danger">{this.state.error}</Text>
           <Form.Item>
-            <Button type='primary' htmlType='submit' style={{ width: '100%' }}>Log In</Button>
+            <Button type="primary" htmlType="submit" style={{ width: "100%" }}>
+              Log In
+            </Button>
           </Form.Item>
           <Form.Item>
-            <Button style={{ width: '100%' }}><Link to='/register'>Create New Account</Link></Button>
+            <Button style={{ width: "100%" }}>
+              <Link to="/register">Create New Account</Link>
+            </Button>
           </Form.Item>
         </Form>
       </>

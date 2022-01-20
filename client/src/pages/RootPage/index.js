@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-import { Layout } from 'antd';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { Layout } from "antd";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-import { unauthenticatedRoutes, authenticatedRoutes } from './Routes';
+import { unauthenticatedRoutes, authenticatedRoutes } from "./Routes";
 
-import AuthenticationChecker from './AuthenticationChecker';
-import TopNav from './TopNav';
+import AuthenticationChecker from "./AuthenticationChecker";
+import TopNav from "./TopNav";
 
 const { Content } = Layout;
 
@@ -15,29 +15,25 @@ export default class RootPage extends Component {
     return (
       <BrowserRouter>
         <AuthenticationChecker />
-        <Layout style={{ background: 'white' }}>
+        <Layout style={{ background: "white" }}>
           <TopNav />
           <Switch>
             <Route>
               <Content>
                 <Switch>
-                  {
-                    unauthenticatedRoutes.map(route => (
-                      <Route exact={true} key={route.path} path={route.path}>
-                        {route.component}
-                      </Route>
-                    ))
-                  }
+                  {unauthenticatedRoutes.map((route) => (
+                    <Route exact={true} key={route.path} path={route.path}>
+                      {route.component}
+                    </Route>
+                  ))}
                 </Switch>
 
                 <Switch>
-                  {
-                    authenticatedRoutes.map(route => (
-                      <Route exact={true} key={route.path} path={route.path}>
-                        {route.component}
-                      </Route>
-                    ))
-                  }
+                  {authenticatedRoutes.map((route) => (
+                    <Route exact={true} key={route.path} path={route.path}>
+                      {route.component}
+                    </Route>
+                  ))}
                 </Switch>
               </Content>
             </Route>
